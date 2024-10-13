@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import "./assets/scss/style.scss";
 import { useState, useEffect } from "react";
 import ReactConfetti from "react-confetti";
+import { ThemeProvider } from "./components/ui/theme-provider";
+import { ModeToggle } from "./components/ui/mode-toggle";
 
 function App() {
   const [timeLeft, setTimeLeft] = useState("");
@@ -32,21 +34,26 @@ function App() {
   };
 
   return (
-    <div className="hero_section mt-52 xl:mt-80">
-      {showConfetti && <ReactConfetti />}
-      <div className="flex text-center flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold mb-4">Tic Tac ⏰ !</h1>
-        <p className="px-3 xl:px-96 underline">
-          Elle a 22 ans ? Apparement non pas encore il lui reste encore un peu
-          de temps,le site ne s'ouvrira pas tant qu'elle n'aura pas soufflé ses
-          bougies.
-        </p>
-        <h1 className="text-4xl md:text-7xl mt-6 font-bold mb-8">{timeLeft}</h1>
-        <Button variant="outline" onClick={handleConfetti}>
-          En attentant 🎉
-        </Button>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <ModeToggle></ModeToggle>
+      <div className="hero_section mt-52 xl:mt-80">
+        {showConfetti && <ReactConfetti />}
+        <div className="flex text-center flex-col items-center justify-center">
+          <h1 className="text-4xl font-bold mb-4">Tic Tac ⏰ !</h1>
+          <p className="px-3 xl:px-96 underline">
+            Elle a 22 ans ? Apparement non pas encore il lui reste encore un peu
+            de temps,le site ne s'ouvrira pas tant qu'elle n'aura pas soufflé
+            ses bougies.
+          </p>
+          <h1 className="text-4xl md:text-7xl mt-6 font-bold mb-8">
+            {timeLeft}
+          </h1>
+          <Button variant="outline" onClick={handleConfetti}>
+            En attentant 🎉
+          </Button>
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
