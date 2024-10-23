@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import ReactConfetti from "react-confetti";
 
 // Nous allons créer des versions simplifiées des composants UI
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 // Données du quiz
 const quizData = [
@@ -86,6 +98,7 @@ const quizData = [
 ];
 
 export default function QuizProgressionReact() {
+  const [showConfetti, setShowConfetti] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState([
     false,
@@ -96,6 +109,8 @@ export default function QuizProgressionReact() {
   const [selectedAnswers, setSelectedAnswers] = useState(
     Array(quizData.length).fill(null)
   );
+  const [showVideo, setShowVideo] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const totalSteps = quizData.length;
 
   const handleButtonClick = (optionIndex: number) => {
@@ -120,7 +135,7 @@ export default function QuizProgressionReact() {
     const loadImages = async () => {
       const loadPromises = quizData[currentStep].images.map(
         (src, index) =>
-          new Promise((resolve) => {
+          new Promise<void>((resolve) => {
             const img = new Image();
             img.onload = () => {
               setImagesLoaded((prev) => {
@@ -166,8 +181,19 @@ export default function QuizProgressionReact() {
     ));
   };
 
+  const isLastStepAndAnswered =
+    currentStep === totalSteps - 1 && selectedAnswers[currentStep] !== null;
+
+  const handleContinue = (e: React.MouseEvent) => {
+    e.preventDefault(); // Empêche la fermeture par défaut
+    setShowVideo(true);
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 25000);
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto p-6">
+      {showConfetti && <ReactConfetti />}
       <h1 className="text-3xl font-bold mb-4 text-center">Quiz Progression</h1>
       <Progress value={(currentStep / (totalSteps - 1)) * 100} />
       <p className="text-center mb-4 mt-4">
@@ -185,6 +211,45 @@ export default function QuizProgressionReact() {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {renderButtons()}
+      </div>
+      <div className="mt-6 flex justify-center">
+        <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+          <AlertDialogTrigger asChild>
+            <Button
+              disabled={!isLastStepAndAnswered}
+              onClick={() => setIsDialogOpen(true)}
+            >
+              {isLastStepAndAnswered
+                ? "Terminer le quiz"
+                : "Finalisez le quiz pour continuer"}
+            </Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            {!showVideo ? (
+              <>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Félicitations !</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Vous avez terminé le quiz. Voulez-vous voir la récompense ?
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <Button onClick={handleContinue}>Continuer</Button>
+                </AlertDialogFooter>
+              </>
+            ) : (
+              <div className="w-full aspect-video">
+                <video controls className="w-full h-full">
+                  <source
+                    src="src/assets/0a55aa14b75140138f71e60d842fda3f.mp4"
+                    type="video/mp4"
+                  />
+                  Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+              </div>
+            )}
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
   );
