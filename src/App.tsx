@@ -70,7 +70,7 @@ function App() {
               </h1>
               <Button
                 variant="outline"
-                onClick={isTimeUp ? handleOpenQuizz : handleOpenQuizz}
+                onClick={isTimeUp ? handleConfetti : handleOpenQuizz}
               >
                 {isTimeUp ? "Ouvrir le site " : "En attendant 🎉"}
               </Button>
