@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import Video from "../assets/0a55aa14b75140138f71e60d842fda3f.mp4";
 
 import {
   AlertDialog,
@@ -239,10 +240,7 @@ export default function QuizProgressionReact() {
             ) : (
               <div className="w-full aspect-video">
                 <video controls className="w-full h-full">
-                  <source
-                    src="src/assets/0a55aa14b75140138f71e60d842fda3f.mp4"
-                    type="video/mp4"
-                  />
+                  <source src={Video} type="video/mp4" />
                   Votre navigateur ne supporte pas la lecture de vidéos.
                 </video>
               </div>
