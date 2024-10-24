@@ -79,6 +79,16 @@ const quizData = [
     ],
   },
   {
+    question: "Lequel est Malcom X ?",
+    options: ["1", "2", "3", "4"],
+    images: [
+      "https://static01.nyt.com/images/2020/02/09/nyregion/09Malcolm1/07malcolmx20-superJumbo.jpg?quality=90&auto=webp",
+      "https://i0.wp.com/rayhaber.com/wp-content/uploads/2020/07/Nelson-Mandela-Kimdir.jpg?fit=1424%2C800&ssl=1",
+      "https://cdn.cnn.com/cnn/interactive/2018/04/us/martin-luther-king-jr-cnnphotos/media/01.jpg",
+      "https://areajugones.sport.es/wp-content/uploads/2021/02/muhammad-ali-facebook.jpg",
+    ],
+  },
+  {
     question: "Quel est le meilleur concert de sa vie ?",
     options: [
       "CELUI DE DON TOLIVER ?",
