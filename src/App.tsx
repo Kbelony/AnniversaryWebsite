@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
-      const target = new Date(now.getFullYear(), 9, 24, 0, 0, 0, 0); // 9 représente octobre (0-indexé)
+      const target = new Date(now.getFullYear(), 10, 13, 0, 0, 0, 0); // 10 représente novembre (0-indexé)
       if (now > target) target.setFullYear(target.getFullYear() + 1);
 
       const diff = target.getTime() - now.getTime();
@@ -56,7 +56,7 @@ function App() {
   // Fonction pour forcer isTimeUp à true (pour le test)
   const forceTimeUp = () => {
     setIsTimeUp(true);
-    setTimeLeft("C'est l'heure !");
+    setTimeLeft("It's time!");
   };
 
   return (
@@ -72,12 +72,12 @@ function App() {
             {showConfetti && <ReactConfetti />}
             <div className="flex text-center flex-col items-center justify-center">
               <h1 className="text-4xl font-bold mb-4">
-                {isTimeUp ? "Joyeux Anniversaire ! 🎂" : "Tic Tac ⏰ !"}
+                {isTimeUp ? "መልካም ልደት ! 🎂" : "Tic Tac ⏰ !"}
               </h1>
               <h5 className="px-3 xl:px-96 underline">
                 {isTimeUp
-                  ? "QUOI ELLE A 22 ANS ? C'EST BON ? ON DIRAIT BIEN QUE LE SITE PEUT S'OUVRIR ALORS  🎉"
-                  : "Elle a 22 ans ? Apparemment non pas encore il lui reste encore un peu de temps, le site ne s'ouvrira pas tant qu'elle n'aura pas soufflé ses bougies."}
+                  ? "WHAT SHE'S 20? IS THAT OK? IT LOOKS LIKE THE SITE CAN OPEN THEN 🎉"
+                  : "She's 22? Apparently not yet, she still has a little time left, the site won't open until she blows out her candles."}
               </h5>
               <h1 className="text-4xl md:text-7xl mt-6 font-bold mb-8">
                 {timeLeft}
@@ -86,11 +86,11 @@ function App() {
                 variant="outline"
                 onClick={isTimeUp ? handleOpenQuizz : handleConfetti}
               >
-                {isTimeUp ? "OUVRIR LE SITE 🎉" : "En attendant 🎉"}
+                {isTimeUp ? "OPEN SITE 🎉" : "Waiting 🎉"}
               </Button>
               {/* Bouton pour forcer isTimeUp (à des fins de test) */}
               <Button onClick={forceTimeUp} className="mt-4">
-                Forcer le temps écoulé
+                Force elapsed time
               </Button>
             </div>
           </div>

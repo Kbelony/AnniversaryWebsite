@@ -24,7 +24,7 @@ const quizData = [
     question: "Quelle est l'artiste preferé de Naëlla ?",
     options: ["Travis Scott", "The Weeknd", "Lana del Rey", "Jul"],
     images: [
-      "https://theshaderoom.com/wp-content/uploads/2022/04/Travis-Scott-scaled.jpg?w=1024",
+      "https://github.com/Kbelony/AnniversaryWebsite/blob/main/src/assets/img/IMG_4349.jpeg",
       "https://static.billboard.com/files/2021/05/the-weeknd-uncut-gems-billboard-1548-1620053830-compressed.jpg",
       "https://th.bing.com/th/id/OIP.foQJGz5vW7lUZpIT3htuDgHaE8?rs=1&pid=ImgDetMain",
       "https://www.booska-p.com/wp-content/uploads/2022/06/Jul-Bonus-Visu-News.jpg",
@@ -249,10 +249,10 @@ export default function QuizProgressionReact() {
               </>
             ) : (
               <div className="w-full aspect-video">
-                <video controls className="w-full h-full">
+                {/* <video controls className="w-full h-full">
                   <source src={Video} type="video/mp4" />
                   Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
+                </video> */}
               </div>
             )}
           </AlertDialogContent>
