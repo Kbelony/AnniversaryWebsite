@@ -77,7 +77,7 @@ function App() {
               <h5 className="px-3 xl:px-96 underline">
                 {isTimeUp
                   ? "WHAT SHE'S 20? IS THAT OK? IT LOOKS LIKE THE SITE CAN OPEN THEN 🎉"
-                  : "She's 22? Apparently not yet, she still has a little time left, the site won't open until she blows out her candles."}
+                  : "She's 20? Apparently not yet, she still has a little time left, the site won't open until she blows out her candles."}
               </h5>
               <h1 className="text-4xl md:text-7xl mt-6 font-bold mb-8">
                 {timeLeft}
