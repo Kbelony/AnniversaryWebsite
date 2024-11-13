@@ -78,7 +78,9 @@
 .card{
   border-radius: 0.75rem!important;
 }
-
+img{
+  object-fit: cover!important;
+}
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
