@@ -33,7 +33,7 @@ function App() {
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        setTimeLeft(`${days}j ${hours}h ${minutes}m ${seconds}s`);
+        setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
       }
     }, 1000);
     return () => clearInterval(timer);
