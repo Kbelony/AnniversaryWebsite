@@ -41,7 +41,7 @@ const quizData = [
     ],
   },
   {
-    question: "Whose music was we first listened together? ",
+    question: "Whose music did we first listen together? ",
     options: ["SZA", "Franck Ocean", "Daniel Ceasar", "Future"],
     images: [
       "https://th.bing.com/th/id/OIP.bl3Pp1IL3bxoR52SbLA4LAAAAA?rs=1&pid=ImgDetMain",
