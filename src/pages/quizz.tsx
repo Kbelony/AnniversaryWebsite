@@ -65,7 +65,7 @@ const quizData = [
     options: ["1", "2", "3", "4"],
     images: [
       "https://github.com/Kbelony/AnniversaryWebsite/blob/main/src/assets/img/IMG_4210.jpg?raw=true",
-      "https://github.com/Kbelony/AnniversaryWebsite/blob/main/src/assets/img/IMG_4349.jpg?raw=true",
+      "https://github.com/Kbelony/AnniversaryWebsite/blob/main/src/assets/img/IMG_4212.jpg?raw=true",
       "https://github.com/Kbelony/AnniversaryWebsite/blob/main/src/assets/img/IMG_4282.jpg?raw=true",
       "https://github.com/Kbelony/AnniversaryWebsite/blob/main/src/assets/img/IMG_4321.jpg?raw=true",
     ],
